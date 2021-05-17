@@ -1,3 +1,5 @@
+import { io } from 'socket.io-client';
+
 export const LOAD_SUCCESS = 'LOAD_SUCCESS';
 export const LOAD_FAILED = 'LOAD_FAILED';
 
@@ -11,22 +13,20 @@ export const loadTickersFailed = error => ({
     error: error,
 });
 
+
 export const tickerLoad = () => dispatch => {
+    const URL = "http://localhost:4000";
+    const socket = io(URL, { autoConnect: true });
 
-    fetch('http://localhost:4000')
-        .then(response => {
-            if (response.ok) {
-                
-                return response.json();
-            }
+    socket.emit('start');
+    socket.on('ticker', function(response) {
+        const res = Array.isArray(response) ? response : [response];
+        const json = res.map(item => JSON.stringify(item)).join('\n');
+   
 
-            throw new Error('Can not load');
-        })
-        .then(result => {
-            const action = loadTickersSuccess(result);
+     console.log ('json', json)
+
+            const action = loadTickersSuccess(json);
             dispatch(action);
-        })
-        .catch(error => {
-            dispatch(loadTickersFailed(error));
-        })
+        });
 };

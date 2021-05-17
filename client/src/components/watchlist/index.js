@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {tickerLoad} from '../../store/actions';
 
 function Watchlist(props) {
-
+    console.log('Watchlist', props)
     return(
         <div> 
             <div>
@@ -11,6 +11,9 @@ function Watchlist(props) {
             </div> 
             <div> 
                  {props.exchange}
+            </div>
+            <div> 
+                 
             </div>
             <button onClick={props.load}>Load tickers</button>
         </div>
@@ -20,12 +23,12 @@ function Watchlist(props) {
 
 const mapStateToProps = state => {
 
-    console.log(state);
+    console.log('state', state);
 
     return {
         ticker:  state.ticker,
         exchange: state.exchange,
-        
+  
     };
 }
 

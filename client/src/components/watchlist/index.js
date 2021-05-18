@@ -17,15 +17,14 @@ function Watchlist(props) {
                 { props.state.map((item, index) => {
                     return(
                         <div key={index}> 
-                        { console.log('item', item) }
-                        <div>
-                            <div>{ item.ticker }</div>
-                            <div>{ item.exchange }</div>
-                            <div>{ item.price }</div>
-                            <div>{ item.change }</div>
-                            <div>{ item.change_percent }</div>
-                            <div>{ item.last_trade_time }</div>
-                        </div>
+                            <div className='watchlist-item'>
+                                <div>{ item.ticker }</div>
+                                <div>{ item.exchange }</div>
+                                <div>{ `${item.price} ` +'$'}</div>
+                                <div>{ item.change }</div>
+                                <div>{ `${item.change_percent} ` +'%'}</div>
+                                <div>{ item.last_trade_time }</div>
+                            </div>
                         </div>
                     )
 

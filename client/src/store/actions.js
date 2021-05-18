@@ -21,11 +21,9 @@ export const tickerLoad = () => dispatch => {
     socket.emit('start');
     socket.on('ticker', function(response) {
         const res = Array.isArray(response) ? response : [response];
-        const json = res.map(item => JSON.stringify(item)).join('\n');
-   
-
-     console.log ('json', json)
-
+        const json = res.map(item => JSON.stringify(item));
+        //const data = JSON.parse(json);
+        
             const action = loadTickersSuccess(json);
             dispatch(action);
         });

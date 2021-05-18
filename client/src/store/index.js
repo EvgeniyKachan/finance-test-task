@@ -2,13 +2,13 @@ import {createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { LOAD_SUCCESS, LOAD_FAILED } from './actions';
 
-const defaultState = {
-    ticker: "AAPL",  
-    exchange: "NASDAQ",  
-};
+// const defaultState = {
+//     ticker: "AAPL",  
+//     exchange: "NASDAQ",  
+// };
 
 
-function rootReducer(state = defaultState , action) {
+function rootReducer(state = [] , action) {
     switch (action.type) {
         case LOAD_SUCCESS:
             return action.payload;

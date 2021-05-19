@@ -31,7 +31,10 @@ body {
 }
 
 .watchlist-item div {
- width: 100px;
+ width: 110px;
+ padding: 10px;
+ text-align: center;
+ border-radius: 8px;
 }
 
 .marketheading-block {
@@ -39,9 +42,25 @@ body {
   flex-direction: row;
   margin: 20px;
   justify-content: space-between;
-  
 }
 
+.low-block {
+  background: #fce8e6;
+  color: #a50e0e;
+}
+
+.hight-block {
+  background: #e6f4ea;
+  color: #137333
+}
+
+.low-text {
+  color: #a50e0e;
+}
+
+.hight-text {
+  color: #137333
+}
 .market-item {
   width: 120px;
   display: flex;

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {tickerLoad} from '../../store/actions';
 import Marketheading from '../marketheading';
 
-
 function Watchlist(props) {
 
     window.onload = function() {
@@ -14,7 +13,7 @@ function Watchlist(props) {
         <div className='watchlist-wrap'>
             <Marketheading />
             <div className='watchlist-block'>
-                { props.state.map((item, index) => {
+                { props.state.map((item, index) => {                
                     return(
                         <div key={index}> 
                             <div className='watchlist-item'>
@@ -23,11 +22,10 @@ function Watchlist(props) {
                                 <div>{ `${item.price} ` +'$'}</div>
                                 <div>{ item.change }</div>
                                 <div>{ `${item.change_percent} ` +'%'}</div>
-                                <div>{ item.last_trade_time }</div>
+                                <div>{ (new Date ( Date.parse(item.last_trade_time))).toLocaleTimeString('uk-UA',{day:'numeric', month:'long', year:'numeric', weekday:'long', hour:'2-digit', minute:'2-digit', second: '2-digit'}) }</div>
                             </div>
                         </div>
                     )
-
                 })            
                 }
             </div>

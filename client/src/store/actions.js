@@ -2,7 +2,7 @@ import { io } from 'socket.io-client';
 
 export const LOAD_SUCCESS = 'LOAD_SUCCESS';
 export const LOAD_FAILED = 'LOAD_FAILED';
-
+ 
 export const loadTickersSuccess = ticker => ({
     type: LOAD_SUCCESS,
     payload: ticker,

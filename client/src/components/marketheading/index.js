@@ -2,12 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 function Marketheading(props) {
-    console.log('Marketheading',props)
+
     return(
         <div className='marketheading-block'>
-        { props.state.map((item, index) => {
-
-            
+        { props.state.map((item, index) => {         
             return(
                 <div key={index}> 
                    <div className='market-item'>
@@ -20,7 +18,6 @@ function Marketheading(props) {
                    </div>
                 </div>
             )
-
            })            
         }
         </div>
@@ -28,8 +25,6 @@ function Marketheading(props) {
 }
 
 const mapStateToProps = state => {
-
-    console.log('Marketheading ', state);
 
     return {
         state
